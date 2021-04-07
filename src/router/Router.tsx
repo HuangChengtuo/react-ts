@@ -1,6 +1,6 @@
 import { Switch, Route, NavLink } from 'react-router-dom'
-import Index from "./pages/index/Index";
-import Playground from './pages/plaground/Playground'
+import Index from "../pages/index/Index";
+import Playground from '../pages/plaground/Playground'
 import './Router.scss'
 
 export default function Router(props: any) {
@@ -8,7 +8,7 @@ export default function Router(props: any) {
     <div>
       <div className={'router-header'}>
         <NavLink to={'/'}>index</NavLink>
-        &nbsp;
+        &nbsp; &nbsp;
         <NavLink to={'/playground'}>playground</NavLink>
       </div>
       <Switch>

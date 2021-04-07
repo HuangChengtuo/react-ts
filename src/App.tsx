@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './Router';
+import Router from './router/Router';
 import { BrowserRouter, withRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
@@ -15,4 +15,4 @@ ReactDOM.render(
     </BrowserRouter>
   </ConfigProvider>,
   document.getElementById('root')
-);
+)

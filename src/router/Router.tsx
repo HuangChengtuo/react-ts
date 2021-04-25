@@ -6,7 +6,7 @@ import ReduxB from '@/pages/redux/b'
 import UnixTime from '@/pages/unixTime/UnixTime'
 import './Router.scss'
 
-const RouterHeader = (
+const IndexHeader = (
   <div className={'router-header'}>
     <NavLink to={'/'}>index</NavLink>
     &nbsp; &nbsp;
@@ -20,12 +20,18 @@ const RouterHeader = (
   </div>
 )
 
+const Nav = (
+  <div id="nav">
+    
+  </div>
+)
+
 export default function Router() {
   const route = useLocation()
 
   return (
     <div>
-      {route.pathname === '/' ? RouterHeader : ''}
+      {route.pathname === '/' ? IndexHeader : Nav}
       <Switch>
         <Route exact path="/" component={Index} />
         <Route path="/playground" component={Playground} />

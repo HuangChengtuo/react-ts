@@ -1,13 +1,14 @@
-import { Switch, Route, NavLink, useLocation } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { Switch, Route, useLocation } from 'react-router-dom'
+
 import Index from "@/pages/index/Index";
 import Playground from '@/pages/plaground/Playground'
 import ReduxA from '@/pages/redux/a'
 import ReduxB from '@/pages/redux/b'
 import UnixTime from '@/pages/unixTime/UnixTime'
-import './Router.scss'
 
+import './Router.scss'
 import dayjs from 'dayjs'
-import { useEffect, useState } from "react";
 
 export default function Router() {
   const route = useLocation()
@@ -18,22 +19,8 @@ export default function Router() {
     }, 1000)
     return () => {
       clearInterval(timer)
-
     }
   })
-  const IndexHeader = (
-    <div className={'router-header'}>
-      <NavLink to={'/'}>index</NavLink>
-      &nbsp; &nbsp;
-      <NavLink to={'/playground'}>playground</NavLink>
-      &nbsp; &nbsp;
-      <NavLink to={'/redux/a'}>ReduxA</NavLink>
-      &nbsp; &nbsp;
-      <NavLink to={'/redux/b'}>ReduxB</NavLink>
-      &nbsp; &nbsp;
-      <NavLink to={'/unixTime'}>unixTime</NavLink>
-    </div>
-  )
 
   const DefaultNav = (
     <div id="nav">
@@ -48,7 +35,7 @@ export default function Router() {
 
   return (
     <div>
-      {route.pathname === '/' ? IndexHeader : DefaultNav}
+      {route.pathname !== '/' ? DefaultNav : null}
       <Switch>
         <Route exact path="/" component={Index} />
         <Route path="/playground" component={Playground} />

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import type { State } from '../../store'
+import type { State } from '@/store'
 import { Button } from 'antd'
 
 export default function ReduxA() {

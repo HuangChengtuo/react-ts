@@ -1,8 +1,8 @@
 import { Switch, Route, NavLink } from 'react-router-dom'
-import Index from "../pages/index/Index";
-import Playground from '../pages/plaground/Playground'
-import ReduxA from '../pages/redux/a'
-import ReduxB from '../pages/redux/b'
+import Index from "@/pages/index/Index";
+import Playground from '@/pages/plaground/Playground'
+import ReduxA from '@/pages/redux/a'
+import ReduxB from '@/pages/redux/b'
 import './Router.scss'
 
 export default function Router(props: any) {

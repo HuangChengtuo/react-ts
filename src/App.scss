@@ -1,0 +1,55 @@
+@media screen and (max-width: 980px) {
+  html {
+    // 375px除以100等于100vw除以font-size，得到font-size等于26.6666666vw
+    // 375px除以100等于1(100%)除以font-size，得到font-size等于.266666666vw
+    // 750px除以100等于1(100%)除以font-size，得到font-size等于.133333333vw
+    font-size: 0.133333333vw;
+
+    body {
+      font-size: 40rem;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@font-face {
+  font-family: dinbold;
+  src: url("https://s1.huangchengtuo.com/fonts/dinbold.woff");
+}
+
+.din-font {
+  font-family: dinbold, sans-serif;
+}
+
+@font-face {
+  font-family: roboto;
+  src: url("https://s1.huangchengtuo.com/fonts/Roboto-Medium-12.ttf");
+}
+
+.roboto-font {
+  font-family: roboto, sans-serif;
+}
+
+.jcsa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.jcsb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aic {
+  display: flex;
+  align-items: center;
+}

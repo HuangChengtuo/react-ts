@@ -5,8 +5,8 @@ import Router from './router/Router';
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import 'antd/dist/antd.css';
-
+import 'antd/dist/antd.min.css';
+import './App.scss'
 
 ReactDOM.render(
   <BrowserRouter>

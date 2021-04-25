@@ -4,11 +4,35 @@
   line-height: 80px;
 }
 
-#Nav{
+#nav {
   display: flex;
   align-items: center;
   background: #fff;
   height: 64px;
   box-shadow: 0 4px 8px rgba(234, 235, 246, 25%);
   padding: 0 20px;
+  margin-bottom: 16px;
+
+  .logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-right: auto;
+
+    .logo-img {
+      height: 64px;
+    }
+  }
+
+  .download-btn {
+    color: #fff;
+    cursor: pointer;
+    width: 80px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #fb7299;
+    border-radius: 4px;
+    margin-left: 14px;
+  }
 }

@@ -28,8 +28,14 @@ export default function UnixTime() {
       setEnd(+e.target.value)
     }
   }
-
-
+  const [duration, setDuration] = useState('-')
+  const calcDuration = () => {
+    const unix = end - start
+    const hours = Math.floor(unix / 3600)
+    const minutes = Math.floor(unix / 60) % 60
+    const seconds = unix % 60
+    setDuration(`${hours}小时${minutes}分钟${seconds}秒`)
+  }
 
   return (
     <div id="unix-time-page">
@@ -50,7 +56,8 @@ export default function UnixTime() {
         &nbsp; &nbsp;{'=>'}&nbsp; &nbsp;
         {dayjs(end * 1000).format('YYYY-MM-DD HH:mm:ss')}
       </div>
-      <Button type="primary">计算</Button>
+      <Button type="primary" onClick={calcDuration}>计算</Button>
+      <div>{duration}</div>
     </div>
   )
 }

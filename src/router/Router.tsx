@@ -6,6 +6,7 @@ import Playground from '@/pages/plaground/Playground'
 import ReduxA from '@/pages/redux/a'
 import ReduxB from '@/pages/redux/b'
 import UnixTime from '@/pages/unixTime/UnixTime'
+import Hex from '@/pages/hex/Hex'
 
 import './Router.scss'
 import dayjs from 'dayjs'
@@ -38,6 +39,7 @@ export default function Router() {
         <Route path="/redux/a" component={ReduxA} />
         <Route path="/redux/b" component={ReduxB} />
         <Route path="/unixTime" component={UnixTime} />
+        <Route path="/hex" component={Hex} />
       </Switch>
     </>
   )

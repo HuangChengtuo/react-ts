@@ -39,7 +39,7 @@ export default function UnixTime() {
 
   return (
     <div id="unix-time-page">
-      <h2 className="now">现在时间戳：{now.unix()}</h2>
+      <h2>现在时间戳：{now.unix()}</h2>
       <div>
         时间戳：<Input value={unix} onChange={changeUnix} type="number" name="unix" />
         &nbsp; &nbsp;{'=>'}&nbsp; &nbsp;

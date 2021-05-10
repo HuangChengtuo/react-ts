@@ -1,16 +1,11 @@
 import './Hex.scss'
-import { Radio, RadioChangeEvent, Input, Button } from 'antd';
+import { Radio, RadioChangeEvent, Input } from 'antd';
 import { ChangeEvent, useState } from "react";
 
 
 export default function Hex() {
   const [type, setType] = useState(10)
-
   const [value, setValue] = useState('12345')
-
-  const calc = () => {
-    console.log(value, parseInt(value, type).toString(16))
-  }
 
   return (
     <div id="hex-page">

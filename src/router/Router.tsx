@@ -25,7 +25,7 @@ export default function Router() {
   return (
     <>
       <div id="nav">
-        <a href="https://www.huangchengtuo.com" className="logo">
+        <a href="http://www.huangchengtuo.com" className="logo">
           <img src="https://s1.huangchengtuo.com/img/pureDD.png" alt="logo" className="logo-img" />
           黄秤砣
         </a>

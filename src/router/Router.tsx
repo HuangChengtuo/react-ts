@@ -7,11 +7,12 @@ import ReduxA from '@/pages/redux/a'
 import ReduxB from '@/pages/redux/b'
 import UnixTime from '@/pages/unixTime/UnixTime'
 import Hex from '@/pages/hex/Hex'
+import ReactDom from '@/pages/reactDom/ReactDom'
 
 import './Router.scss'
 import dayjs from 'dayjs'
 
-export default function Router() {
+export default function Router () {
   const [time, setTime] = useState(dayjs().format('YYYY-MM-DD HH:mm:ss'))
   useEffect(() => {
     let timer = setInterval(() => {
@@ -40,6 +41,7 @@ export default function Router() {
         <Route path="/redux/b" component={ReduxB} />
         <Route path="/unixTime" component={UnixTime} />
         <Route path="/hex" component={Hex} />
+        <Route path="/reactDom" component={ReactDom} />
       </Switch>
     </>
   )

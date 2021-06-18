@@ -10,7 +10,7 @@ export default function ReactDom (): React.ReactElement {
   useEffect(() => {
     console.log(re)
     ReactDOM.render(re, document.getElementById('render-container'))
-  }, [])
+  }, [re])
 
   return (
     <div id="playground">

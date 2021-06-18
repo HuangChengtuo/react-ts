@@ -8,6 +8,7 @@ import ReduxB from '@/pages/redux/b'
 import UnixTime from '@/pages/unixTime/UnixTime'
 import Hex from '@/pages/hex/Hex'
 import ReactDom from '@/pages/reactDom/ReactDom'
+import Db from '@/pages/indexedDB/Db'
 
 import './Router.scss'
 import dayjs from 'dayjs'
@@ -42,6 +43,7 @@ export default function Router () {
         <Route path="/unixTime" component={UnixTime} />
         <Route path="/hex" component={Hex} />
         <Route path="/reactDom" component={ReactDom} />
+        <Route path="/db" component={Db} />
       </Switch>
     </>
   )

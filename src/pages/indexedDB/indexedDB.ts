@@ -14,7 +14,7 @@ class LocalIndexedDB {
   /**
    * Constructor a new indexedDB object
    * @param database 数据库名字
-   * @param version 数据库版本号，该字段已废弃，根据 open() 时的情况自动递增
+   * @param version 数据库版本号，该字段已废弃，根据 open 时的情况自动递增
    * @param storeName 库中表名字
    */
   constructor (database: string, version: number, storeName: string) {
@@ -22,7 +22,7 @@ class LocalIndexedDB {
       console.log('This browser doesn\'t support IndexedDB');
     } else {
       this._storeName = storeName;
-      this._version = 1;
+      this._version = 1
       this._database = database;
     }
   }
@@ -34,17 +34,11 @@ class LocalIndexedDB {
   public open () {
     return new Promise<IDBDatabase>((resolve, reject) => {
       try {
-        const self = this;
-
-        if (self._db) {
-          return resolve(self._db);
-        }
-
         // If exist the same version database, there need upgrade an new version database,
         // because of the same version can't trigger onupgradeneeded event which will occur
         // object stores was not found exception.
-        const request = indexedDB.open(self._database, self._version);
-        console.log('open', request)
+        const request = indexedDB.open(this._database, this._version);
+        const self = this;
 
         request.onsuccess = function (e: any) {
           self._db = request.result;
@@ -69,13 +63,16 @@ class LocalIndexedDB {
         }
 
         request.onerror = (e: any) => {
-          // open 版本过低的数据库时，递增一个版本再次 open
+          // open 版本过低的数据库时，升级版本再次 open
           if (e?.target?.error?.name === 'VersionError') {
-            this._version += 1
+            // this._version += 1 的话有两处同时 open 时会导致 version+2，不一致被 blocked
+            // message: 'OMException: The requested version (1) is less than the existing version (2).'
+            // 只有 message 里有现在版本的信息，只好用正则从 message 里取了。。
+            this._version = e?.target?.error?.message?.match(/[0-9]+/g)?.pop() || (this._version + 1)
             resolve(this.open())
             return
           }
-          console.error(e)
+          console.log('Maybe you not allow my web app to use IndexedDB!');
           reject(e);
         }
       } catch (e) {
@@ -96,12 +93,10 @@ class LocalIndexedDB {
       // 需要数据库提高数据库的版本，重新调用 onupgradeneeded 的方法执行 createObjectStore 创建表才行
       if (e?.stack?.includes('object stores was not found')) {
         this._db.close()
-        this._db = null
         this._version += 1
         this.open()
       }
       return null;
-
     }
   }
 
@@ -129,7 +124,7 @@ class LocalIndexedDB {
    */
   public get (key: string) {
     console.log('IndexedDB get', key);
-    return this.wrapStoreOperationPromise(function (store: IDBObjectStore) {
+    return this.wrapStoreOperationPromise<string>(function (store: IDBObjectStore) {
       return store.get(key);
     });
   }
@@ -170,7 +165,9 @@ class LocalIndexedDB {
         const store = this.getObjectStore(this._storeName, 'readwrite');
         if (store) {
           const req = operate(store);
-          req.onsuccess = (evt: any) => resolve(evt.target.result);
+          req.onsuccess = (evt: any) => {
+            resolve(evt.target.result)
+          };
           req.onerror = (evt: any) => reject(evt);
         }
       } catch (e) {
@@ -178,10 +175,6 @@ class LocalIndexedDB {
         reject(e);
       }
     })
-  }
-
-  private log (...args: any) {
-    console.log('indexDB log:', args)
   }
 }
 

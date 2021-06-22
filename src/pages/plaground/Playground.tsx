@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Playground.scss'
 
 import { Button, Select, DatePicker } from 'antd'
@@ -6,6 +6,10 @@ import { Button, Select, DatePicker } from 'antd'
 const Option = Select.Option
 
 export default function Playground (): React.ReactElement {
+  const [text] = useState('asd')
+  useEffect(() => {
+    console.log(text)
+  }, [])
   const btnFn = (e: React.MouseEvent) => {
     console.log(e)
   }

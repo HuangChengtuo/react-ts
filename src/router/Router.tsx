@@ -8,7 +8,7 @@ import ReduxB from '@/pages/redux/b'
 import UnixTime from '@/pages/unixTime/UnixTime'
 import Hex from '@/pages/hex/Hex'
 import ReactDom from '@/pages/reactDom/ReactDom'
-import Db from '@/pages/indexedDB/Db'
+import Db from '@/pages/db/Db'
 
 import './Router.scss'
 import dayjs from 'dayjs'

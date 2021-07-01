@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
 import { Button } from 'antd'
 import { connect, DispatchProp } from 'react-redux'
-import type { State } from '@/store'
+import { changeCount } from '@/store'
 
 function ReduxB (props: { count: number } & DispatchProp) {
   function minus () {
-    props.dispatch({ type: 'count', payload: props.count - 1 })
+    props.dispatch(changeCount(props.count - 1))
   }
 
   return (
@@ -19,6 +19,6 @@ function ReduxB (props: { count: number } & DispatchProp) {
   )
 }
 
-export default connect((state: State) => {
+export default connect((state: any) => {
   return { count: state.count }
 })(ReduxB)

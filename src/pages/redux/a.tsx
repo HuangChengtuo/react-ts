@@ -1,21 +1,17 @@
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { useMySelector } from '@/store'
+import { useMySelector, changeCount } from '@/store'
 import { Button } from 'antd'
-import { useEffect } from 'react'
 
 export default function ReduxA () {
+  // import type { State } from '@/store'
   // const count = useSelector<State, number>(state => state.count)
   const count = useMySelector(state => state.count)
   const dispatch = useDispatch()
 
   function add () {
-    dispatch({ type: 'count', payload: count + 1 })
+    dispatch(changeCount(count + 1))
   }
-
-  useEffect(() => {
-    console.log(count)
-  }, [])
 
   const router = useHistory()
 

@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { configureStore, createSlice } from '@reduxjs/toolkit'
 import { useSelector } from 'react-redux'
 
 const state = {
@@ -6,19 +6,21 @@ const state = {
   count: 1
 }
 
-export type State = typeof state
+const slice = createSlice({
+  name: 'default',
+  initialState: state,
+  reducers: {
+    changeCount (state, action: { payload: number }) {
+      state.count = action.payload
+    }
+  }
+})
 
-const reducer = (state: State, { type, payload }) => {
-  return { ...state, [type]: payload }
-}
+export const { changeCount } = slice.actions
 
-const store = createStore(
-  reducer,
-  state,
-  (window as any)?.__REDUX_DEVTOOLS_EXTENSION__?.()
-)
+export default configureStore({ reducer: slice.reducer })
 
-export default store
+type State = typeof state
 
 export function useMySelector<T = any> (fn: (state: State) => T) {
   return useSelector<State, T>(fn)

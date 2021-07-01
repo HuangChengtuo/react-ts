@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import './ReactDom.scss'
 
-export default function ReactDom (): React.ReactElement {
+export default function ReactDom () {
   const re: React.ReactElement = React.createElement('div', { className: 'test', id: 'unique' }, 'React.ReactElement')
   const rn: React.ReactNode = <div>React.ReactNode</div>
   const jsx: JSX.Element = <div>JSX.Element</div>
@@ -13,11 +12,11 @@ export default function ReactDom (): React.ReactElement {
   }, [re])
 
   return (
-    <div id="playground">
+    <div className="page-1200">
       {jsx}
       {rn}
       {re}
-      <div id="render-container"></div>
+      <div id="render-container" />
     </div>
   );
 }

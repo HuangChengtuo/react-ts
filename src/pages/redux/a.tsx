@@ -1,14 +1,21 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import type { State } from '@/store'
+import { useMySelector } from '@/store'
 import { Button } from 'antd'
+import { useEffect } from 'react'
 
 export default function ReduxA () {
-  const count = useSelector<State, number>(state => state.count)
+  // const count = useSelector<State, number>(state => state.count)
+  const count = useMySelector(state => state.count)
   const dispatch = useDispatch()
-  const add = () => {
+
+  function add () {
     dispatch({ type: 'count', payload: count + 1 })
   }
+
+  useEffect(() => {
+    console.log(count)
+  }, [])
 
   const router = useHistory()
 
@@ -18,7 +25,7 @@ export default function ReduxA () {
       <div>count:{count}</div>
       <Button onClick={add}>add</Button>
       <br />
-      <Button onClick={() => {router.push('/redux/b?hct=123')}}>go to B</Button>
+      <Button onClick={() => { router.push('/redux/b?hct=123') }}>go to B</Button>
     </div>
   )
 }

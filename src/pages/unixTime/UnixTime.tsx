@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import { Input, Button } from 'antd';
 import './UnixTime.scss'
 
-export default function UnixTime() {
+export default function UnixTime () {
   const [now, setNow] = useState(dayjs())
   useEffect(() => {
     let timer = setInterval(() => {
@@ -18,14 +18,15 @@ export default function UnixTime() {
   const [start, setStart] = useState(dayjs().unix())
   const [end, setEnd] = useState(dayjs().unix() + 86400)
   const changeUnix = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === 'unix') {
-      setUnix(+e.target.value)
-    }
-    if (e.target.name === 'start') {
-      setStart(+e.target.value)
-    }
-    if (e.target.name === 'end') {
-      setEnd(+e.target.value)
+    switch (e.target.name) {
+      case 'unix':
+        setUnix(+e.target.value)
+        break
+      case 'start':
+        setStart(+e.target.value)
+        break
+      case 'end':
+        setEnd(+e.target.value)
     }
   }
   const [duration, setDuration] = useState('-')

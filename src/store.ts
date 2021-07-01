@@ -1,14 +1,12 @@
 import { createStore } from 'redux'
+import { useSelector } from 'react-redux'
 
-export interface State {
-  color: string,
-  count: number
-}
-
-const state: State = {
+const state = {
   color: 'red',
   count: 1
 }
+
+export type State = typeof state
 
 const reducer = (state: State, { type, payload }) => {
   return { ...state, [type]: payload }
@@ -21,3 +19,7 @@ const store = createStore(
 )
 
 export default store
+
+export function useMySelector<T = any> (fn: (state: State) => T) {
+  return useSelector<State, T>(fn)
+}

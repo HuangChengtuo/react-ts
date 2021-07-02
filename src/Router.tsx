@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom'
-import Nav from './Nav'
+import Nav from '@/components/nav/Nav'
 import Index from "@/pages/index/Index";
 import Playground from '@/pages/plaground/Playground'
 import ReduxA from '@/pages/redux/a'

@@ -8,6 +8,7 @@ import UnixTime from '@/pages/unixTime/UnixTime'
 import Hex from '@/pages/hex/Hex'
 import ReactDom from '@/pages/reactDom/ReactDom'
 import Db from '@/pages/db/Db'
+import Bangumi from '@/pages/Bangumi'
 
 export default function Router () {
   return <>
@@ -21,6 +22,7 @@ export default function Router () {
       <Route path="/hex" component={Hex} />
       <Route path="/reactDom" component={ReactDom} />
       <Route path="/db" component={Db} />
+      <Route path="/bangumi" component={Bangumi} />
     </Switch>
   </>
 }

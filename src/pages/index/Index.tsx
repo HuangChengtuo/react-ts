@@ -1,8 +1,8 @@
 import './Index.scss';
-import { ClockCircleOutlined, CalculatorOutlined } from '@ant-design/icons'
+import { ClockCircleOutlined, CalculatorOutlined, YoutubeOutlined } from '@ant-design/icons'
 import { NavLink } from "react-router-dom";
 
-export default function Index() {
+export default function Index () {
   return (
     <div id="home-page">
       <h1>黄秤砣的工具箱</h1>
@@ -15,6 +15,10 @@ export default function Index() {
         <NavLink to="/hex" className="card">
           <h2>进制转换</h2>
           <CalculatorOutlined style={{ fontSize: '192px' }} />
+        </NavLink>
+        <NavLink to="/bangumi" className="card">
+          <h2>新番 JSON 生成</h2>
+          <YoutubeOutlined style={{ fontSize: '192px' }} />
         </NavLink>
       </div>
     </div>

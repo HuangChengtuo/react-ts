@@ -2,21 +2,17 @@ import { useState, useEffect } from 'react'
 import { Button } from 'antd'
 import dayjs from 'dayjs'
 
-interface IBangumi {
-  begin: string,
-  end: string
-}
-
-export default function Bangumi () {
+export default function Bangumi2json () {
   /** 一年前 */
   const start = dayjs().unix() - 86400 * 365
   const [json, setJson] = useState('{}')
   const [url, setUrl] = useState('')
+  const [loading, setLoading] = useState(true)
 
   async function getData () {
     const raw = await fetch('https://cdn.jsdelivr.net/npm/bangumi-data/dist/data.json')
     const res = await raw.json()
-    let arr: IBangumi[] = res.items
+    let arr: Bangumi[] = res.items
     // 过滤已完结和一年前开播还未完结的番剧
     arr = arr.filter(item => !item.end)
     arr = arr.filter(item => dayjs(item.begin).unix() > start)
@@ -24,6 +20,7 @@ export default function Bangumi () {
     const blob = new Blob([json], { type: 'application/json;charset=utf-8' })
     setJson(JSON.stringify(arr))
     setUrl(URL.createObjectURL(blob))
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -32,10 +29,16 @@ export default function Bangumi () {
 
   return (
     <div className="page-1200" style={{ wordBreak: 'break-all' }}>
-      <Button type="primary">
-        <a href={url} download="bangumi">下载 JSON 文件</a>
-      </Button>
-      <br />
+      <div>
+        <Button type="primary" loading={loading}>
+          <a style={{ color: 'white' }} href={url} download="bangumi">下载 JSON 文件</a>
+        </Button>
+        &nbsp; &nbsp;原数据来自&nbsp;
+        <a href="https://bangumi.tv/" target="_blank" rel="noreferrer">番组计划</a>
+        &nbsp;
+        <a href="https://github.com/bangumi-data/bangumi-data" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+
       {json}
     </div>
   )

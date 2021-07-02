@@ -22,7 +22,7 @@ export default function Nav () {
     </a>
       <span className="time roboto-font" data-v-005de424="">{time}</span>
       <NavLink to="/" className="download-btn">工具箱</NavLink>
-      <a href="http://blog.huangchengtuo.com" target="_blank" rel="noreferrer" className="download-btn">去博客</a>
+      <a href="http://blog.huangchengtuo.com" rel="noreferrer" className="download-btn">去博客</a>
     </div>
   )
 }

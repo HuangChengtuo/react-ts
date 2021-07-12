@@ -1,4 +1,4 @@
-import './Hex.scss'
+import './hex.scss'
 import { Radio, RadioChangeEvent, Input } from 'antd';
 import { ChangeEvent, useState } from "react";
 

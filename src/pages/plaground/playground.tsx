@@ -1,5 +1,5 @@
 import React from 'react'
-import BlockA from './BlockA'
+import BlockA from './blockA'
 
 export default class Playground extends React.Component {
   render () {

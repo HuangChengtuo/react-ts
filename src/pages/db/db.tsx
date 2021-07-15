@@ -13,13 +13,13 @@ export default function Db () {
 
   async function getFn () {
     await db.open()
-    let data = await db.get('name')
+    const data = await db.get('name')
     setVal(data)
   }
 
   async function getFn2 () {
     await db.open()
-    let data = await db.get('key2')
+    const data = await db.get('key2')
     setVal2(data)
   }
 

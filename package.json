@@ -83,7 +83,10 @@
       "react-app"
     ],
     "rules": {
-      "react-hooks/exhaustive-deps": 0
+      "react-hooks/exhaustive-deps": 0,
+      "eqeqeq": 2,
+      "no-var": 2,
+      "prefer-const": 1
     }
   },
   "browserslist": {

@@ -3,7 +3,7 @@
  * Compatibility: https://caniuse.com/#feat=indexeddb
  */
 
-declare var window: any;
+declare const window: any;
 
 class LocalIndexedDB {
   private _db: IDBDatabase;

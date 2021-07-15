@@ -1,26 +1,30 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import dayjs from 'dayjs'
-import { Input, Button } from 'antd';
+import { Input, Button, Radio } from 'antd';
 import './unixTime.scss'
 
 export default function UnixTime () {
   const [now, setNow] = useState(dayjs())
   useEffect(() => {
-    let timer = setInterval(() => {
+    const timer = setInterval(() => {
       setNow(dayjs())
     }, 1000)
     return () => {
       clearInterval(timer)
     }
-  })
+  }, [])
 
   const [unix, setUnix] = useState(now.unix())
+  const [text, setText] = useState(now.format('YYYY-MM-DD HH:mm:ss'))
   const [start, setStart] = useState(dayjs().unix())
   const [end, setEnd] = useState(dayjs().unix() + 86400)
   const changeUnix = (e: ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case 'unix':
         setUnix(+e.target.value)
+        break
+      case 'text':
+        setText(e.target.value)
         break
       case 'start':
         setStart(+e.target.value)
@@ -29,13 +33,23 @@ export default function UnixTime () {
         setEnd(+e.target.value)
     }
   }
+
   const [duration, setDuration] = useState('-')
+  const [unit, setUnit] = useState('h')
   const calcDuration = () => {
     const unix = end - start
-    const hours = Math.floor(unix / 3600)
+    let hours = Math.floor(unix / 3600)
     const minutes = Math.floor(unix / 60) % 60
     const seconds = unix % 60
-    setDuration(`${hours}小时${minutes}分钟${seconds}秒`)
+    if (unit === 'h') {
+      setDuration(`${hours}小时${minutes}分钟${seconds}秒`)
+    }
+    if (unit === 'd') {
+      const days = Math.floor(unix / 86400)
+      hours = Math.floor(unix / 3600) % 24
+      setDuration(`${days}天${hours}小时${minutes}分钟${seconds}秒`)
+
+    }
   }
 
   return (
@@ -45,6 +59,11 @@ export default function UnixTime () {
         时间戳：<Input value={unix} onChange={changeUnix} type="number" name="unix" />
         &nbsp; &nbsp;{'=>'}&nbsp; &nbsp;
         {dayjs(unix * 1000).format('YYYY-MM-DD HH:mm:ss')}
+      </div>
+      <div>
+        字符串：<Input value={text} onChange={changeUnix} name="text" />
+        &nbsp; &nbsp;{'=>'}&nbsp; &nbsp;
+        {dayjs(text).unix()}
       </div>
       <h2 style={{ margin: '16px 0 8px' }}>计算持续时间</h2>
       <div>
@@ -58,6 +77,11 @@ export default function UnixTime () {
         {dayjs(end * 1000).format('YYYY-MM-DD HH:mm:ss')}
       </div>
       <Button type="primary" onClick={calcDuration}>计算</Button>
+      &nbsp; &nbsp;
+      <Radio.Group value={unit} onChange={(e) => { setUnit(e.target.value) }}>
+        <Radio value="d">天</Radio>
+        <Radio value="h">小时</Radio>
+      </Radio.Group>
       <div>{duration}</div>
     </div>
   )

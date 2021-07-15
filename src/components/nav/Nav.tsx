@@ -6,7 +6,7 @@ import './Nav.scss'
 export default function Nav () {
   const [time, setTime] = useState(dayjs().format('YYYY-MM-DD HH:mm:ss'))
   useEffect(() => {
-    let timer = setInterval(() => {
+    const timer = setInterval(() => {
       setTime(dayjs().format('YYYY-MM-DD HH:mm:ss'))
     }, 1000)
     return () => {

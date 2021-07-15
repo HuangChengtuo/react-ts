@@ -16,6 +16,7 @@ export default function Bangumi2json () {
     // 过滤已完结和一年前开播还未完结的番剧
     arr = arr.filter(item => !item.end)
     arr = arr.filter(item => dayjs(item.begin).unix() > start)
+    console.log(arr)
 
     const blob = new Blob([json], { type: 'application/json;charset=utf-8' })
     setJson(JSON.stringify(arr))
@@ -29,16 +30,13 @@ export default function Bangumi2json () {
 
   return (
     <div className="page-1200" style={{ wordBreak: 'break-all' }}>
-      <div>
+      <div style={{ marginRight: '8px' }}>
         <Button type="primary" loading={loading}>
           <a style={{ color: 'white' }} href={url} download="bangumi">下载 JSON 文件</a>
         </Button>
-        &nbsp; &nbsp;原数据来自&nbsp;
-        <a href="https://bangumi.tv/" target="_blank" rel="noreferrer">番组计划</a>
-        &nbsp;
-        <a href="https://github.com/bangumi-data/bangumi-data" target="_blank" rel="noreferrer">GitHub</a>
+        &nbsp; &nbsp;已过滤完结和一年前开播还未完结的番剧&nbsp; &nbsp;原数据来自
+        <a href="https://github.com/bangumi-data/bangumi-data" target="_blank" rel="noreferrer">番组计划</a>
       </div>
-
       {json}
     </div>
   )

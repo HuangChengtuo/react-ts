@@ -8,7 +8,7 @@ import UnixTime from '@/pages/unixTime/unixTime'
 import Hex from '@/pages/hex/hex'
 import ReactDom from '@/pages/reactDom/reactDom'
 import Db from '@/pages/db/db'
-import Bangumi from '@/pages/Bangumi'
+import Bangumi from '@/pages/bangumi'
 
 export default function Router () {
   return <>

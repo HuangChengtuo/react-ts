@@ -1,12 +1,12 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import store from './store'
-import Router from './Router';
+import Router from './router';
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import 'antd/dist/antd.min.css';
-import './App.scss'
+import './global.scss'
 
 ReactDOM.render(
   <BrowserRouter>

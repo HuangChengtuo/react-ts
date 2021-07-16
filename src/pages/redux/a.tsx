@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { useHistory, useRouteMatch } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useMySelector, changeCount } from '@/store'
 import { Button } from 'antd'
 
@@ -10,12 +10,11 @@ export default function ReduxA () {
   const dispatch = useDispatch()
 
   function add () {
+    console.log( changeCount(count + 1))
     dispatch(changeCount(count + 1))
   }
 
   const router = useHistory()
-  const match = useRouteMatch()
-  console.log(router, match)
 
   return (
     <div className="redux-a page-1200">

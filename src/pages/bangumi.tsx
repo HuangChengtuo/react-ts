@@ -5,9 +5,13 @@ import dayjs from 'dayjs'
 export default function Bangumi2json () {
   /** 一年前 */
   const start = dayjs().unix() - 86400 * 365
-  const [json, setJson] = useState('{}')
+  const [json, setJson] = useState('[]')
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   async function getData () {
     const raw = await fetch('https://cdn.jsdelivr.net/npm/bangumi-data/dist/data.json')
@@ -18,19 +22,16 @@ export default function Bangumi2json () {
     arr = arr.filter(item => dayjs(item.begin).unix() > start)
     console.log(arr)
 
-    const blob = new Blob([json], { type: 'application/json;charset=utf-8' })
-    setJson(JSON.stringify(arr))
+    const s = JSON.stringify(arr)
+    setJson(s)
+    const blob = new Blob([s], { type: 'application/json;charset=utf-8' })
     setUrl(URL.createObjectURL(blob))
     setLoading(false)
   }
 
-  useEffect(() => {
-    getData()
-  }, [])
-
   return (
     <div className="page-1200" style={{ wordBreak: 'break-all' }}>
-      <div style={{ marginRight: '8px' }}>
+      <div style={{ marginBottom: '4px' }}>
         <Button type="primary" loading={loading}>
           <a style={{ color: 'white' }} href={url} download="bangumi">下载 JSON 文件</a>
         </Button>

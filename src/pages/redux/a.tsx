@@ -10,7 +10,7 @@ export default function ReduxA () {
   const dispatch = useDispatch()
 
   function add () {
-    console.log( changeCount(count + 1))
+    console.log(changeCount(count + 1))
     dispatch(changeCount(count + 1))
   }
 

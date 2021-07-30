@@ -6,11 +6,13 @@ import './unixTime.scss'
 export default function UnixTime () {
   const [now, setNow] = useState(dayjs())
   useEffect(() => {
+    window.dayjs = dayjs
     const timer = setInterval(() => {
       setNow(dayjs())
     }, 1000)
     return () => {
       clearInterval(timer)
+      window.dayjs = null
     }
   }, [])
 

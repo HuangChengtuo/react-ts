@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom'
-import { useMySelector, asyncFn ,useMyDispatch} from '@/store'
+import { useMySelector, useMyDispatch, changeCount } from '@/store'
 import { Button } from 'antd'
 
 export default function ReduxA () {
@@ -9,7 +9,7 @@ export default function ReduxA () {
   const dispatch = useMyDispatch()
 
   function add () {
-    dispatch(asyncFn(count + 1)).then(res => { console.log(res) })
+    dispatch(changeCount(count + 1))
   }
 
   const router = useHistory()

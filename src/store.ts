@@ -43,5 +43,5 @@ export function useMySelector<T = any> (fn: (state: State) => T) {
 }
 
 export function useMyDispatch () {
-  return useDispatch<ThunkDispatch<State, void, Action>>()
+  return useDispatch<ThunkDispatch<State, any, Action>>()
 }

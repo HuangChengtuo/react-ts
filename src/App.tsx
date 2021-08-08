@@ -5,7 +5,6 @@ import Router from './router';
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import 'antd/dist/antd.min.css';
 import './global.scss'
 
 ReactDOM.render(

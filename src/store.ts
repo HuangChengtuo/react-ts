@@ -1,5 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-import { useSelector } from 'react-redux'
+import { Action } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
+import ThunkMiddleware, { ThunkDispatch } from 'redux-thunk'
 
 const state = {
   color: 'red',
@@ -18,10 +20,28 @@ const slice = createSlice({
 
 export const { changeCount } = slice.actions
 
-export default configureStore({ reducer: slice.reducer })
+export function asyncFn (count: number) {
+  return function (dispatch) {
+    return fetch('https://s1.huangchengtuo.com/json/bangumi.json').then(() => {
+      dispatch(changeCount(count))
+      return count
+    })
+  }
+}
+
+const store = configureStore({
+  reducer: slice.reducer,
+  middleware: [ThunkMiddleware]
+})
+
+export default store
 
 type State = typeof state
 
 export function useMySelector<T = any> (fn: (state: State) => T) {
   return useSelector<State, T>(fn)
+}
+
+export function useMyDispatch () {
+  return useDispatch<ThunkDispatch<State, any, Action>>()
 }

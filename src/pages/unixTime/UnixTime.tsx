@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { Input, Button, Radio } from 'antd';
-import './unixTime.scss'
+import './UnixTime.scss'
 
 export default function UnixTime () {
   const [now, setNow] = useState(dayjs())

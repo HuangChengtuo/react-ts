@@ -5,8 +5,11 @@ import Default from '@/layouts/Default'
 import '@/layouts/default.scss'
 import '@/components/nav.scss'
 import './global.scss'
+import './hex.scss'
+import './index.scss'
+import './unixTime.scss'
 
-export default function MyApp ({ Component, pageProps }: AppProps) {
+export default function App ({ Component, pageProps }: AppProps) {
   console.log('layout')
   return <>
     <Head>

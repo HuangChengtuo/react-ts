@@ -10,7 +10,6 @@ import './index.scss'
 import './unixTime.scss'
 
 export default function App ({ Component, pageProps }: AppProps) {
-  console.log('layout')
   return <>
     <Head>
       <title>黄秤砣的工具箱</title>

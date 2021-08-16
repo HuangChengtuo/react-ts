@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import Link from './Link'
 
 export default function Nav () {
-  const [time, setTime] = useState(dayjs().format('YYYY-MM-DD HH:mm:ss'))
+  const [time, setTime] = useState('')
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(dayjs().format('YYYY-MM-DD HH:mm:ss'))
@@ -11,7 +11,7 @@ export default function Nav () {
     return () => {
       clearInterval(timer)
     }
-  }, [time])
+  }, [])
 
   return (
     <div id="nav">

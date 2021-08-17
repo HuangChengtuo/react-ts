@@ -8,9 +8,10 @@ interface Bangumi {
   title: string
 }
 
+/** 一年前 */
+const start = dayjs().unix() - 86400 * 365
+
 export default function Bangumi2json () {
-  /** 一年前 */
-  const start = dayjs().unix() - 86400 * 365
   const [json, setJson] = useState('[]')
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(true)
@@ -26,7 +27,6 @@ export default function Bangumi2json () {
     // 过滤已完结和一年前开播还未完结的番剧
     arr = arr.filter(item => !item.end)
     arr = arr.filter(item => dayjs(item.begin).unix() > start)
-    console.log(arr)
 
     const s = JSON.stringify(arr)
     setJson(s)

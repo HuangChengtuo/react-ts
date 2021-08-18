@@ -6,14 +6,8 @@ interface Props {
   children: React.ReactNode
 }
 
-const Link: React.FC<Props> = props => <NextLink href={props.to}>
-  <a className={props.className}>{props.children}</a>
-</NextLink>
-
-export default Link
-
-// export default function Link (props: Props) {
-//   return <NextLink href={props.to}>
-//     <a className={props.className}>{props.children}</a>
-//   </NextLink>
-// } 
+export default function Link (props: Props) {
+  return <NextLink href={props.to}>
+    <a className={props.className}>{props.children}</a>
+  </NextLink>
+}

@@ -19,7 +19,8 @@ export default function UnixTime () {
   const [text, setText] = useState(now.format('YYYY-MM-DD HH:mm:ss'))
   const [start, setStart] = useState(dayjs().unix())
   const [end, setEnd] = useState(dayjs().unix() + 86400)
-  const changeUnix = (e: ChangeEvent<HTMLInputElement>) => {
+
+  function changeUnix (e: ChangeEvent<HTMLInputElement>) {
     switch (e.target.name) {
       case 'unix':
         setUnix(+e.target.value)
@@ -37,7 +38,8 @@ export default function UnixTime () {
 
   const [duration, setDuration] = useState('-')
   const [unit, setUnit] = useState('h')
-  const calcDuration = () => {
+
+  function calcDuration () {
     const unix = end - start
     let hours = Math.floor(unix / 3600)
     const minutes = Math.floor(unix / 60) % 60

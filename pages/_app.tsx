@@ -7,6 +7,7 @@ import '@/components/nav.scss'
 import './global.scss'
 import './hex.scss'
 import './index.scss'
+import './swiper.scss'
 import './unixTime.scss'
 
 export default function App ({ Component, pageProps }: AppProps) {

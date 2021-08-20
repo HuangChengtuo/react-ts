@@ -1,0 +1,26 @@
+#swiper-page {
+  .container {
+    border: 1px solid #000000;
+    height: 600px;
+    position: relative;
+
+    .card {
+      width: 1200px;
+      height: 600px;
+      border: 1px solid #ff0000;
+      position: absolute;
+      top: 0;
+      left: 1200px;
+      transition: all 0.5s;
+    }
+    .l {
+      left: -1200px;
+    }
+    .c {
+      left: 0;
+    }
+    .r {
+      left: 1200px;
+    }
+  }
+}

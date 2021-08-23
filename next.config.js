@@ -6,8 +6,5 @@ module.exports = {
       config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }))
     }
     return config
-  },
-  images: {
-    domains: ['s1.huangchengtuo.com']
   }
 }

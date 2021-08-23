@@ -1,23 +1,21 @@
-import { useEffect, useState } from 'react'
-import { Button } from 'antd'
-
-let oldCount = 0
+import { useState, useEffect } from "react";
 
 export default function Test () {
-  const [count, setCount] = useState(0)
+  const [url, setUrl] = useState('')
 
   useEffect(() => {
-    oldCount = count
-    console.log('effect', oldCount)
-  })
-  console.log('normal', oldCount)
+    fetch('https://s1.huangchengtuo.com/img/DD.png').then(raw => raw.blob()).then(res => {
+      const fr = new FileReader()
+      fr.onload = e => setUrl(e.target.result as string)
+      fr.readAsDataURL(res)
+    })
+  }, [])
+
 
   return <>
     <h1>test page</h1>
     <div>
-      {count}
-      <Button onClick={() => { setCount(count + 1) }}>asdasd</Button>
-      {oldCount}
+      <img src={url} alt="dd" />
     </div>
   </>
 }

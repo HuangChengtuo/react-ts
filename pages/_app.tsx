@@ -1,14 +1,11 @@
-import type { AppProps /*, AppContext */ } from 'next/app'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Default from '@/layouts/Default'
 
-import '@/layouts/default.scss'
-import '@/components/nav.scss'
-import './global.scss'
-import './hex.scss'
-import './index.scss'
-import './swiper.scss'
-import './unixTime.scss'
+import '@/components/components.scss'
+import '@/layouts/layouts.scss'
+import '@/css/global.scss'
+import './pages.scss'
 
 export default function App ({ Component, pageProps }: AppProps) {
   return <>

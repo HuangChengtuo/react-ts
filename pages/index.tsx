@@ -1,4 +1,11 @@
-import { ClockCircleOutlined, CalculatorOutlined, YoutubeOutlined, CalendarOutlined, BgColorsOutlined } from '@ant-design/icons'
+import {
+  ClockCircleOutlined,
+  CalculatorOutlined,
+  YoutubeOutlined,
+  CalendarOutlined,
+  BgColorsOutlined,
+  FileImageOutlined
+} from '@ant-design/icons'
 import NavLink from '@/components/Link'
 
 interface Card {
@@ -25,14 +32,19 @@ export default function Index () {
       Icon: CalculatorOutlined
     },
     {
-      title: 'RGB 转换器',
-      link: '/rgb',
-      Icon: BgColorsOutlined
-    },
-    {
       title: '新番 JSON 生成',
       link: '/bangumi2json',
       Icon: YoutubeOutlined
+    },
+    {
+      title: '获取 base64',
+      link: '/img2base64',
+      Icon: FileImageOutlined
+    },
+    {
+      title: 'RGB 转换器',
+      link: '/rgb',
+      Icon: BgColorsOutlined
     }
   ]
 

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "PORT=3333 next dev",
+    "dev": "next dev -p 3333",
     "build": "next build",
-    "start": "PORT=3333 next start",
+    "start": "next start -p 3333",
     "generate": "next build && next export",
     "export": "next export",
     "lint": "next lint"

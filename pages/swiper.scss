@@ -4,31 +4,46 @@
     height: 600px;
     position: relative;
     width: 1200px;
-    overflow: hidden;
+    //overflow: hidden;
 
     .card {
-      width: 1200px;
-      height: 600px;
+      width: 600px;
+      height: 300px;
       position: absolute;
-      top: 0;
-      left: 1200px;
-      transition: left 0.5s;
-      z-index: -1;
+      bottom: 0;
+      transition: all 0.5s;
+      transform: translateX(-50%);
+      left: 50%;
+      opacity: 0;
+      z-index: 0;
     }
 
+    //.ll {
+    //  left: -300px;
+    //}
+
     .l {
-      left: -1200px;
+      left: -200px;
       z-index: 1;
+      opacity: 1;
     }
 
     .c {
-      left: 0;
-      z-index: 1;
+      width: 700px;
+      height: 350px;
+      left: 50%;
+      z-index: 2;
+      opacity: 1;
     }
 
     .r {
-      left: 1200px;
+      left: 1400px;
       z-index: 1;
+      opacity: 1;
     }
+
+    //.rr {
+    //  left: 1500px;
+    //}
   }
 }

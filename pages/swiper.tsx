@@ -21,29 +21,63 @@ temp.next.prev = temp
 
 export default function Swiper () {
   const [head, setHead] = useState(temp)
+  const [arr, setArr] = useState([1, 2, 3, 4, 5, 6])
 
   useEffect(() => {
     console.log(head)
   })
 
+  // function getClass (node: number) {
+  //   let position = ''
+  //   if (node === head.prev.prev.index) {
+  //     position = 'll'
+  //   }
+  //   if (node === head.prev.index) {
+  //     position = 'l'
+  //   }
+  //   if (node === head.index) {
+  //     position = 'c'
+  //   }
+  //   if (node === head.next.index) {
+  //     position = 'r'
+  //   }
+  //   if (node === head.next.next.index) {
+  //     position = 'rr'
+  //   }
+  //   return 'card ' + position
+  // }
+
   function getClass (node: number) {
     let position = ''
-    if (node === head.prev.prev.index) {
+    if (node === arr[0]) {
       position = 'll'
     }
-    if (node === head.prev.index) {
+    if (node === arr[1]) {
       position = 'l'
     }
-    if (node === head.index) {
+    if (node === arr[2]) {
       position = 'c'
     }
-    if (node === head.next.index) {
+    if (node === arr[3]) {
       position = 'r'
     }
-    if (node === head.next.next.index) {
+    if (node === arr[4]) {
       position = 'rr'
     }
     return 'card ' + position
+  }
+
+  function prev () {
+    setHead(head.prev)
+    arr.unshift(arr.pop())
+    setArr(arr)
+  }
+
+  function next () {
+    setHead(head.next)
+    const temp = arr
+    temp.push(arr.shift())
+    setArr(temp)
   }
 
   return <div id="swiper-page">
@@ -55,7 +89,7 @@ export default function Swiper () {
       <div className={getClass(5)} style={{ background: 'blue' }}>5</div>
       <div className={getClass(6)} style={{ background: 'purple' }}>5</div>
     </div>
-    <Button onClick={() => { setHead(head.prev) }}>prev</Button>
-    <Button onClick={() => { setHead(head.next) }}>next</Button>
+    <Button onClick={prev}>prev</Button>
+    <Button onClick={next}>next</Button>
   </div>
 }

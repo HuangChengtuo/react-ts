@@ -4,7 +4,7 @@
     height: 600px;
     position: relative;
     width: 1200px;
-    //overflow: hidden;
+    overflow: hidden;
 
     .card {
       width: 600px;
@@ -19,31 +19,30 @@
     }
 
     .ll {
-     left: -300px;
+      transform: translateX(calc(-50% - 1000px));
     }
 
+
     .l {
-      left: -200px;
+      transform: translateX(calc(-50% - 700px));
       z-index: 1;
       opacity: 1;
     }
 
     .c {
-      width: 700px;
-      height: 350px;
-      left: 50%;
+      transform: translate(-50%, -25px) scale(1.166666666);
       z-index: 2;
       opacity: 1;
     }
 
     .r {
-      left: 1400px;
+      transform: translateX(calc(-50% + 700px));
       z-index: 1;
       opacity: 1;
     }
 
     .rr {
-     left: 1500px;
+      transform: translateX(calc(-50% + 1000px));
     }
   }
 }

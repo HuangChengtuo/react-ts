@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Button } from 'antd'
 
 class ListNode {
   index: number
@@ -87,9 +86,9 @@ export default function Swiper () {
       <div className={getClass(3)} style={{ background: 'yellow' }}>3</div>
       <div className={getClass(4)} style={{ background: 'green' }}>4</div>
       <div className={getClass(5)} style={{ background: 'blue' }}>5</div>
-      <div className={getClass(6)} style={{ background: 'purple' }}>5</div>
+      <div className={getClass(6)} style={{ background: 'purple' }}>6</div>
     </div>
-    <Button onClick={prev}>prev</Button>
-    <Button onClick={next}>next</Button>
+    <button onClick={prev}>prev</button>
+    <button onClick={next}>next</button>
   </div>
 }

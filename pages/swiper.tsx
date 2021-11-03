@@ -24,7 +24,7 @@ export default function Swiper () {
 
   useEffect(() => {
     console.log(head)
-  })
+  },[head])
 
   // function getClass (node: number) {
   //   let position = ''

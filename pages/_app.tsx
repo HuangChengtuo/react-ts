@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import Default from '@/layouts/Default'
+import Layout from '@/layouts'
 import { Provider } from 'react-redux'
 import store from '../store'
 
@@ -9,7 +9,7 @@ import '@/layouts/layouts.scss'
 import '@/css/global.scss'
 import './pages.scss'
 
-export default function App ({ Component, pageProps, bangumi }: { bangumi: any[] } & AppProps) {
+export default function App ({ Component, pageProps, router }: AppProps) {
   return <>
     <Head>
       <title>黄秤砣的工具箱</title>
@@ -17,9 +17,9 @@ export default function App ({ Component, pageProps, bangumi }: { bangumi: any[]
       <link rel="stylesheet" href="https://s1.huangchengtuo.com/css/antd.min.css" />
     </Head>
     <Provider store={store}>
-      <Default>
+      <Layout router={router}>
         <Component {...pageProps} />
-      </Default>
+      </Layout>
     </Provider>
   </>
 }

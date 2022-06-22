@@ -18,7 +18,7 @@ export default function Index () {
   const cards: Card[] = [
     {
       title: '新番时间表',
-      link: 'http://www.huangchengtuo.com/bangumi',
+      link: 'https://www.huangchengtuo.com/bangumi',
       Icon: CalendarOutlined
     },
     {

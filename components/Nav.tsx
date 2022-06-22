@@ -15,12 +15,12 @@ export default function Nav () {
 
   return (
     <div id="nav">
-      <a href="http://www.huangchengtuo.com" className="logo">
+      <a href="https://www.huangchengtuo.com" className="logo">
         <img src="https://s1.huangchengtuo.com/img/pureDD.png" alt="logo" className="logo-img" /> 黄秤砣
       </a>
       <span className="time roboto-font" data-v-005de424="">{time}</span>
       <Link to="/" className="download-btn">工具箱</Link>
-      <a href="http://blog.huangchengtuo.com" rel="noreferrer" className="download-btn">去博客</a>
+      <a href="https://blog.huangchengtuo.com" rel="noreferrer" className="download-btn">去博客</a>
     </div>
   )
 }

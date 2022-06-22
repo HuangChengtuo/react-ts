@@ -1,10 +1,10 @@
 {
   "extends": "next",
   "rules": {
-    "@next/next/no-img-element": 0,
+    "eol-last": 1,
     "eqeqeq": 2,
     "no-var": 2,
     "prefer-const": 1,
-    "eol-last": 1
+    "@next/next/no-img-element": 0
   }
 }

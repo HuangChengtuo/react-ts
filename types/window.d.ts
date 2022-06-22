@@ -1,3 +1,7 @@
-interface Window {
-  dayjs: any
+import dayjs from 'dayjs'
+
+declare global {
+  interface Window {
+    dayjs: typeof dayjs
+  }
 }

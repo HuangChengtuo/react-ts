@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { Upload, Button, Input } from 'antd'
 
 export default function Img2base64 () {

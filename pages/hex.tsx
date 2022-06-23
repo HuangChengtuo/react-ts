@@ -1,5 +1,5 @@
 import { Radio, Input } from 'antd'
-import { useState } from "react"
+import { useState } from 'react'
 
 export default function Hex () {
   const [type, setType] = useState(10)

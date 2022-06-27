@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import React from 'react';
 
 interface Props {
   to: string,

@@ -1,11 +1,11 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
-import { useSelector } from 'react-redux'
+import { useSelector, connect } from 'react-redux'
 
 const initialState = {
   count: 0
 }
 
-type State = typeof initialState
+export type StoreState = typeof initialState
 
 const storeSlice = createSlice({
   name: 'store',
@@ -19,8 +19,14 @@ const storeSlice = createSlice({
 
 export const { changeCount } = storeSlice.actions
 
-export function useMySelector<T> (fn: (state: State) => T) {
-  return useSelector<State, T>(fn)
+/** 封装一层 hook，添加准确类型提示 */
+export function useTypeSelector<T = any> (fn: (state: StoreState) => T) {
+  return useSelector<StoreState, T>(fn)
+}
+
+/** 封装一层 hoc，给 mapStateToProps 里的 state 添加类型 */
+export function typeConnect<T> (fn: (state: StoreState) => T) {
+  return connect<T, any, any, StoreState>(fn)
 }
 
 export default configureStore({

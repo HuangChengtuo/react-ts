@@ -1,3 +1,4 @@
+import React from 'react';
 import Default from './Default';
 import type { Router } from 'next/router'
 

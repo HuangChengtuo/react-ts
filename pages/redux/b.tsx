@@ -1,10 +1,10 @@
-import { useMySelector, changeCount } from '../../store'
+import { useTypeSelector, changeCount } from '@/store'
 import { useDispatch } from 'react-redux'
 import { Button } from 'antd'
 import Link from '../../components/Link'
 
 export default function ReduxB () {
-  const count = useMySelector(state => state.count)
+  const count = useTypeSelector(state => state.count)
   const dispatch = useDispatch()
 
   function fn () {

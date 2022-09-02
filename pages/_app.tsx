@@ -7,7 +7,7 @@ import store from '../store'
 import '@/components/components.scss'
 import '@/layouts/layouts.scss'
 import '@/css/global.scss'
-import './pages.scss'
+import '@/css/pages/pages.scss'
 
 export default function App ({ Component, pageProps, router }: AppProps) {
   return <>

@@ -4,7 +4,8 @@ import {
   YoutubeOutlined,
   CalendarOutlined,
   BgColorsOutlined,
-  FileImageOutlined
+  FileImageOutlined,
+  ChromeOutlined
 } from '@ant-design/icons'
 import NavLink from '@/components/Link'
 
@@ -40,6 +41,11 @@ export default function Index () {
       title: '获取 base64',
       link: '/img2base64',
       Icon: FileImageOutlined
+    },
+    {
+      title: '浏览器信息',
+      link: '/ua',
+      Icon: ChromeOutlined
     },
     {
       title: 'RGB 转换器',

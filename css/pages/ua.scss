@@ -1,0 +1,14 @@
+#ua-page {
+  .info-item {
+    display: flex;
+
+    .label {
+      color: #a1aebf;
+      width: 100px;
+    }
+  }
+
+  .info-item + .info-item {
+    margin-top: 16px;
+  }
+}

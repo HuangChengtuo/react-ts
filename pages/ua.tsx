@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 
 export default function Ua () {
   const [ua, setUa] = useState('')
-  const [width, setWidth] = useState(0)
+  const [bodyWidth, setBodyWidth] = useState(0)
+  const [screenWidth, setScreenWidth] = useState(0)
 
   useEffect(() => {
     setUa(window.navigator.userAgent)
-    setWidth(document.body.clientWidth)
+    setBodyWidth(document.body.clientWidth)
+    setScreenWidth(screen.width)
   }, [])
   return <div id="ua-page">
     <div className="info-item">
@@ -14,8 +16,12 @@ export default function Ua () {
       {ua}
     </div>
     <div className="info-item">
-      <span className="label">Width</span>
-      {width}px
+      <span className="label">document.body.clientWidth</span>
+      {bodyWidth}px
+    </div>
+    <div className="info-item">
+      <span className="label">screen.width</span>
+      {screenWidth}px
     </div>
   </div>
 }

@@ -10,18 +10,21 @@ export default function Ua () {
     setBodyWidth(document.body.clientWidth)
     setScreenWidth(screen.width)
   }, [])
-  return <div id="ua-page">
-    <div className="info-item">
-      <span className="label">User Agent</span>
-      {ua}
+
+  return (
+    <div id="ua-page">
+      <div className="info-item">
+        <span className="label">User Agent</span>
+        {ua}
+      </div>
+      <div className="info-item">
+        <span className="label">document.body.clientWidth</span>
+        {bodyWidth}px
+      </div>
+      <div className="info-item">
+        <span className="label">screen.width</span>
+        {screenWidth}px
+      </div>
     </div>
-    <div className="info-item">
-      <span className="label">document.body.clientWidth</span>
-      {bodyWidth}px
-    </div>
-    <div className="info-item">
-      <span className="label">screen.width</span>
-      {screenWidth}px
-    </div>
-  </div>
+  )
 }

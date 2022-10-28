@@ -5,3 +5,9 @@ declare global {
     dayjs: typeof dayjs
   }
 }
+
+export interface Bangumi {
+  begin: string,
+  end: string,
+  title: string
+}

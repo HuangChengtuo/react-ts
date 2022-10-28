@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from 'antd'
 import dayjs from 'dayjs'
-
-interface Bangumi {
-  begin: string,
-  end: string,
-  title: string
-}
+import api from '@/api'
 
 /** 一年前 */
 const start = dayjs().unix() - 86400 * 365
@@ -21,9 +16,8 @@ export default function Bangumi2json () {
   }, [])
 
   async function getData () {
-    const raw = await fetch('https://cdn.jsdelivr.net/npm/bangumi-data/dist/data.json')
-    const res = await raw.json()
-    let arr: Bangumi[] = res.items
+    const res = await api.getBangumi()
+    let arr = res.items
     // 过滤已完结和一年前开播还未完结的番剧
     arr = arr.filter(item => !item.end)
     arr = arr.filter(item => dayjs(item.begin).unix() > start)

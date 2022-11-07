@@ -3,11 +3,11 @@ import {
   CalculatorOutlined,
   YoutubeOutlined,
   CalendarOutlined,
-  BgColorsOutlined,
   FileImageOutlined,
   ChromeOutlined
 } from '@ant-design/icons'
 import NavLink from '@/components/Link'
+import React from 'react'
 
 interface Card {
   title: string,
@@ -46,11 +46,6 @@ export default function Index () {
       title: '浏览器信息',
       link: '/ua',
       Icon: ChromeOutlined
-    },
-    {
-      title: 'RGB 转换器',
-      link: '/rgb',
-      Icon: BgColorsOutlined
     }
   ]
 

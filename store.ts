@@ -20,7 +20,7 @@ const storeSlice = createSlice({
 export const { changeCount } = storeSlice.actions
 
 /** 封装一层 hook，添加准确类型提示 */
-export function useTypeSelector<T = any> (fn: (state: StoreState) => T) {
+export function useTypeSelector<T = unknown> (fn: (state: StoreState) => T) {
   return useSelector<StoreState, T>(fn)
 }
 

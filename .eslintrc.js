@@ -1,7 +1,7 @@
 module.exports = {
   'extends': [
     'next',
-    "plugin:@typescript-eslint/recommended"
+    'plugin:@typescript-eslint/recommended'
   ],
   'rules': {
     'eol-last': 1,

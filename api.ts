@@ -1,7 +1,7 @@
 import qs from 'qs'
 import type { Bangumi } from '@/interface'
 
-export function get<T = any> (url: string, params?: unknown): Promise<T> {
+export function get<T = unknown> (url: string, params?: unknown): Promise<T> {
   let query = ''
   if (params) {
     query = '?' + qs.stringify(params)

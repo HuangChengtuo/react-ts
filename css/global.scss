@@ -7,8 +7,33 @@
 
     body {
       font-size: 40rem;
+      text-align: center;
     }
   }
+}
+
+body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #606266;
+}
+
+a {
+  color: #409eff;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2 {
+  margin: 0;
 }
 
 .one-line {
@@ -19,15 +44,11 @@
 
 @font-face {
   font-family: roboto;
-  src: url("https://s1.huangchengtuo.com/fonts/Roboto-Medium-12.ttf");
+  src: url('https://s1.huangchengtuo.com/fonts/Roboto-Medium-12.ttf');
 }
 
 .roboto-font {
   font-family: roboto, sans-serif;
-}
-
-.flex {
-  display: flex;
 }
 
 .jcsa {

@@ -5,7 +5,7 @@ export default function Document () {
     <Html>
       <Head>
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="stylesheet" href="https://s1.huangchengtuo.com/css/antd.min.css" />
+        {/*<link rel="stylesheet" href="https://s1.huangchengtuo.com/css/antd.min.css" />*/}
       </Head>
       <body>
         <Main />

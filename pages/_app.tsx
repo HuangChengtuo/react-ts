@@ -4,6 +4,7 @@ import Layout from '@/layouts'
 import { Provider } from 'react-redux'
 import store from '../store'
 
+// import 'antd/dist/reset.css'
 import '@/components/components.scss'
 import '@/layouts/layouts.scss'
 import '@/css/global.scss'

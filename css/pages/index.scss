@@ -14,7 +14,13 @@
       width: 288px;
       height: 256px;
       box-shadow: 0 0 5px rgba(168, 182, 191, 60%);
+      border-radius: 16px;
       transition: all .3s;
+
+      .card-title {
+        margin: 8px 0;
+        color: #2c3e50;
+      }
 
       &:hover {
         box-shadow: 0 10px 32px rgba(168, 182, 191, 60%);

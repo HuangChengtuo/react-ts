@@ -55,7 +55,7 @@ export default function Index () {
       <div className="grid">
         {cards.map(item =>
           <NavLink key={item.title} to={item.link} className="card">
-            <h2>{item.title}</h2>
+            <h2 className="card-title">{item.title}</h2>
             <item.Icon style={{ fontSize: '192px' }} />
           </NavLink>
         )}

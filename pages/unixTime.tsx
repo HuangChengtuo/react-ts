@@ -1,24 +1,15 @@
 import { useState, ChangeEvent, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { Input, Button, Radio } from 'antd';
-import type { GetServerSideProps } from 'next'
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  return {
-    props: {
-      // 防止 server 和 client 时间不一致，不在 useState 使用 dayjs()
-      serverUnix: dayjs().unix()
-    }
-  }
-}
-
-export default function UnixTime (props: { serverUnix: number }) {
-  const [now, setNow] = useState(dayjs(props.serverUnix))
+export default function UnixTime () {
+  const [nowUnix, setNowUnix] = useState(0)
 
   useEffect(() => {
+    setNowUnix(dayjs().unix())
     window.dayjs = dayjs
     const timer = setInterval(() => {
-      setNow(dayjs())
+      setNowUnix(dayjs().unix())
     }, 1000)
     return () => {
       clearInterval(timer)
@@ -26,14 +17,18 @@ export default function UnixTime (props: { serverUnix: number }) {
     }
   }, [])
 
-  const [unix, setUnix] = useState(now.unix())
-  const [text, setText] = useState(now.format('YYYY-MM-DD HH:mm:ss'))
+  const [unix, setUnix] = useState(0)
+  const [text, setText] = useState('')
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(0)
 
   useEffect(() => {
-    setStart(dayjs().unix())
-    setEnd(dayjs().unix() + 86400)
+    const now = dayjs()
+    setText(now.format('YYYY-MM-DD HH:mm:ss'))
+    const unix = now.unix()
+    setUnix(unix)
+    setStart(unix)
+    setEnd(unix + 86400)
   }, [])
 
   function changeUnix (e: ChangeEvent<HTMLInputElement>) {
@@ -73,7 +68,7 @@ export default function UnixTime (props: { serverUnix: number }) {
 
   return (
     <div id="unix-time-page">
-      <h2>现在时间戳：{now.unix()}</h2>
+      <h2>现在时间戳：{nowUnix}</h2>
       <div>
         时间戳：<Input value={unix} onChange={changeUnix} type="number" name="unix" />
         &nbsp; &nbsp;{'=>'}&nbsp; &nbsp;

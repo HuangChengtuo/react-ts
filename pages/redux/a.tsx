@@ -1,9 +1,7 @@
-import store, { useTypeSelector, changeCount } from '@/store'
-import type { StoreState } from '@/store'
+import { useTypeSelector, changeCount } from '@/store'
 import { useDispatch } from 'react-redux'
 import { Button } from 'antd'
 import Link from '../../components/Link'
-import type { GetServerSideProps } from 'next'
 
 export default function ReduxA () {
   const count = useTypeSelector(state => state.count)

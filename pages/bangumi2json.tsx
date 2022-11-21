@@ -3,9 +3,6 @@ import { Button } from 'antd'
 import dayjs from 'dayjs'
 import api from '@/api'
 
-/** 一年前 */
-const start = dayjs().unix() - 86400 * 365
-
 export default function Bangumi2json () {
   const [json, setJson] = useState('[]')
   const [url, setUrl] = useState('')
@@ -16,6 +13,8 @@ export default function Bangumi2json () {
   }, [])
 
   async function getData () {
+    /** 一年前 */
+    const start = dayjs().unix() - 86400 * 365
     const res = await api.getBangumi()
     let arr = res.items
     // 过滤已完结和一年前开播还未完结的番剧

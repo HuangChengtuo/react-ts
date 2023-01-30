@@ -6,7 +6,7 @@ import {
   FileImageOutlined,
   ChromeOutlined
 } from '@ant-design/icons'
-import NavLink from '@/components/Link'
+import Link from 'next/link'
 import React from 'react'
 
 interface Card {
@@ -54,10 +54,10 @@ export default function Index () {
       <h1>黄秤砣的工具箱</h1>
       <div className="grid">
         {cards.map(item =>
-          <NavLink key={item.title} to={item.link} className="card">
+          <Link key={item.title} href={item.link} className="card">
             <h2>{item.title}</h2>
             <item.Icon style={{ fontSize: '192px' }} />
-          </NavLink>
+          </Link>
         )}
       </div>
     </div>

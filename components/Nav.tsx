@@ -5,6 +5,7 @@ import Link from './Link'
 export default function Nav () {
   const [time, setTime] = useState('')
   useEffect(() => {
+    setTime(dayjs().format('YYYY-MM-DD HH:mm:ss'))
     const timer = setInterval(() => {
       setTime(dayjs().format('YYYY-MM-DD HH:mm:ss'))
     }, 1000)

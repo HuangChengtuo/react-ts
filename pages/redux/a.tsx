@@ -1,7 +1,7 @@
 import { useTypeSelector, changeCount } from '@/store'
 import { useDispatch } from 'react-redux'
 import { Button } from 'antd'
-import Link from '../../components/Link'
+import Link from 'next/link'
 
 export default function ReduxA () {
   const count = useTypeSelector(state => state.count)
@@ -12,6 +12,6 @@ export default function ReduxA () {
   }
 
   return <>
-    <Link to="/redux/b">go to B</Link><Button onClick={fn}>+</Button>{count}
+    <Link href="/redux/b">go to B</Link><Button onClick={fn}>+</Button>{count}
   </>
 }
